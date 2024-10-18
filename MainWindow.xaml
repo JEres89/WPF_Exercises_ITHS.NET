@@ -1,0 +1,66 @@
+﻿<Window x:Name="window" x:Class="WPF_Exercises_ITHS.NET.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Exercises_ITHS.NET"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}" 
+        Height="450" Width="800"
+        Background="BurlyWood" WindowStyle="ThreeDBorderWindow" RenderTransformOrigin="0.5,0.5">
+   
+    <Grid d:ShowGridLines="True" x:Name="contentGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" MinHeight="30" MaxHeight="30"></RowDefinition>
+            <RowDefinition Height="*" ></RowDefinition>
+            <RowDefinition Height="100" ></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid x:Name="topRow" Background="Azure">
+            <!--<Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MaxWidth="100" />
+                <ColumnDefinition Width="*" MaxWidth="100" />
+                <ColumnDefinition Width="*" MaxWidth="100" />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="asd" Grid.Column="2">wasd</Button>-->
+
+        </Grid>
+        <Grid x:Name="mainContent" Grid.Row="1"  >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="Selector" Width="*"/>
+                <ColumnDefinition x:Name="SelectedContent" Width="*"/>
+                <!--<ColumnDefinition x:Name="Bird" Width="*" MaxWidth="100" />
+                <ColumnDefinition x:Name="Cat" Width="*" MaxWidth="100" />
+                <ColumnDefinition x:Name="Dog" Width="*" MaxWidth="100" />-->
+            </Grid.ColumnDefinitions>
+            <local:StudentRegister></local:StudentRegister>
+
+            <!--<Grid.RowDefinitions>
+                <RowDefinition x:Name="nameRow" Height="*" MaxHeight="100" />
+                <RowDefinition x:Name="propRow" Height="*" MaxHeight="100" />
+                <RowDefinition x:Name="footRow" Height="*" MaxHeight="100" />
+            </Grid.RowDefinitions>-->
+        </Grid>
+        <WrapPanel x:Name="botContent" Grid.Row="2">
+            <Button VerticalAlignment="Top" Content="Create Element" Click="Button_Click_Create" />
+            <Grid VerticalAlignment="Top">
+                <TextBox x:Name="elementName" Width="100" VerticalContentAlignment="Center" TextChanged="elementName_TextChanged" GotFocus="elementName_GotFocus" LostFocus="elementName_LostFocus"/>
+                <Label x:Name="txtNamePlaceholder"  Content="Name..." Background="Transparent" Opacity="0.5" IsHitTestVisible="False"/>
+            </Grid>
+            <ComboBox x:Name="elementType" Width="100" VerticalContentAlignment="Center" VerticalAlignment="Top">
+                <ComboBoxItem Content="TextBlock"/>
+                <ComboBoxItem Content="Button"/>
+                <ComboBoxItem Content="DataGrid"/>
+                <ComboBoxItem Content="TabPanel"/>
+            </ComboBox>
+            <StackPanel>
+                <Label>Grid row</Label>
+                <ComboBox x:Name="gridRowSelector" Width="auto" SelectedIndex="0" />
+            </StackPanel>
+            <StackPanel>
+                <Label>Grid col</Label>
+                <ComboBox x:Name="gridColSelector" Width="auto" SelectedIndex="0" />
+            </StackPanel>
+        </WrapPanel>
+    </Grid>
+</Window>
